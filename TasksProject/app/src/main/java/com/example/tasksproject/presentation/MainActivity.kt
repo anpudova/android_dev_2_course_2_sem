@@ -1,5 +1,7 @@
-package com.example.tasksproject
+package com.example.tasksproject.presentation
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tasksproject.databinding.ActivityMainBinding
@@ -7,6 +9,7 @@ import com.example.tasksproject.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
+    private var preferences: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

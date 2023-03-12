@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">TasksProject</string>
+    <string name="weatherapp">WeatherApp</string>
+    <string name="city">City</string>
+    <string name="request_by_city">Request by city</string>
+    <string name="request_for_coordinates">Request for coordinates</string>
+    <string name="temperature">Temperature</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="wind_speed">Wind speed</string>
 </resources>
