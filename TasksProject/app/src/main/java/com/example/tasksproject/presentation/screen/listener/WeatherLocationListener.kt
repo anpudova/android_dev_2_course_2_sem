@@ -1,4 +1,4 @@
-package com.example.tasksproject.presentation.listeners
+package com.example.tasksproject.presentation.screen.listener
 
 import android.annotation.SuppressLint
 import android.content.Context

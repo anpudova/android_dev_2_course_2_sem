@@ -1,17 +1,13 @@
-package com.example.tasksproject.presentation.fragments
+package com.example.tasksproject.presentation.screen.fragment
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.tasksproject.R
-import com.example.tasksproject.data.repository.WeatherRepository
 import com.example.tasksproject.databinding.FragmentSecondBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.coroutines.launch
 
 class SecondFragment: BottomSheetDialogFragment(R.layout.fragment_second) {
 
@@ -29,11 +25,11 @@ class SecondFragment: BottomSheetDialogFragment(R.layout.fragment_second) {
             Glide.with(requireContext())
                 .load("https://openweathermap.org/img/wn/" + preferences.getString("arg-icon", "02d") + ".png")
                 .into(ivIcon)
-            tvCity.text = preferences.getString("arg-city", "city")
-            tvTemp.text = preferences.getString("arg-temp", "0.0")
-            tvPress.text = preferences.getString("arg-press", "0.0")
-            tvHumidity.text = preferences.getString("arg-hum", "0.0")
-            tvWindSpeed.text = preferences.getString("arg-speed", "0.0")
+            tvCity.text = getString(R.string.city_pattern, preferences.getString("arg-city", ""))
+            tvTemp.text = getString(R.string.temperature_pattern, preferences.getString("arg-temp", ""))
+            tvPress.text = getString(R.string.pressure_pattern, preferences.getString("arg-press", ""))
+            tvHumidity.text = getString(R.string.humidity_pattern, preferences.getString("arg-hum", ""))
+            tvWindSpeed.text = getString(R.string.wind_speed_pattern, preferences.getString("arg-speed", ""))
         }
     }
 
