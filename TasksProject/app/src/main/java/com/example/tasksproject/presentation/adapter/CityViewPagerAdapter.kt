@@ -31,6 +31,7 @@ class CityViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycl
     @SuppressLint("NotifyDataSetChanged")
     fun updateCities(cities: List<CityModel?>?) {
         if (cities != null) {
+            fragmentList.clear()
             for(i in cities.indices) {
                 cities[i].let {
                     fragmentList.add(ItemPageFragment(it))
@@ -40,43 +41,3 @@ class CityViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycl
         notifyDataSetChanged()
     }
 }
-
-/*
-  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return CityViewHolder(
-                    ItemPageBinding.inflate(
-                        LayoutInflater.from(parent.context), parent, false
-                    )
-        )
-    }
-
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-         (holder as? CityViewHolder)?.bindItem(dataList[position])
-    }
-
-    inner class CityViewHolder(private val binding: ItemPageBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        suspend fun bindItem(item: WeatherDataModel) {
-            bind(binding, item)
-        }
-    }
-
-    suspend fun bind(binding: ItemPageBinding, item: WeatherDataModel) {
-        with(binding) {
-            withContext(coroutineContext) {
-                runCatching {
-                    DataDependency.getWeatherByCityNameUseCase(item.city)
-                }.onSuccess {
-                    tvCity.text = item.city
-                    tvTemp.text = item.temperature.toString()
-                    Glide.with(ivIcon.context)
-                        .load("https://openweathermap.org/img/wn/" + item.icon + ".png")
-                        .into(ivIcon)
-                }.onFailure {
-
-                }
-            }
-        }
-    }
-*/

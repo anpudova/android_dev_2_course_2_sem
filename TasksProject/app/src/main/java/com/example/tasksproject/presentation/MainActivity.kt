@@ -2,6 +2,7 @@ package com.example.tasksproject.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -27,5 +28,12 @@ class MainActivity : AppCompatActivity() {
         controller = (supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment).navController
         val bottomView = findViewById<BottomNavigationView>(R.id.btn_view)
         bottomView.setupWithNavController(controller)
+
+        controller.addOnDestinationChangedListener { _, dest, _ ->
+            when (dest.id) {
+                R.id.visibilityListenerTestFragment -> bottomView.visibility = View.GONE
+                else -> bottomView.visibility = View.VISIBLE
+            }
+        }
     }
 }
