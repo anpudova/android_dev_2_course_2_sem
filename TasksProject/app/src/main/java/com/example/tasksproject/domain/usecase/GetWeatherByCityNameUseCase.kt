@@ -1,5 +1,6 @@
 package com.example.tasksproject.domain.usecase
 
+import com.example.tasksproject.domain.entity.mapWeatherEntity
 import com.example.tasksproject.domain.repository.IWeatherRepository
 import com.example.tasksproject.presentation.model.WeatherDataModel
 

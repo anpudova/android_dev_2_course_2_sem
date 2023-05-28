@@ -9,16 +9,15 @@ data class WeatherEntity(
     val pressure: Float,
     val humidity: Float,
     val speed: Float
-) {
-    fun mapWeatherEntity(): WeatherDataModel {
-        return WeatherDataModel(
-            city = this.city,
-            icon = this.icon,
-            temperature = this.temperature,
-            pressure = this.pressure,
-            humidity = this.humidity,
-            speed = this.speed
-        )
-    }
+)
+fun WeatherEntity.mapWeatherEntity(): WeatherDataModel {
+    return WeatherDataModel(
+        city = this.city,
+        icon = this.icon,
+        temperature = this.temperature,
+        pressure = this.pressure,
+        humidity = this.humidity,
+        speed = this.speed
+    )
 }
 
