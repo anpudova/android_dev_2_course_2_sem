@@ -42,13 +42,13 @@ class PieChartView @JvmOverloads constructor(
         super.onDraw(canvas)
 
         val total = data.sumByDouble { it.second.toDouble() }.toFloat()
-        var startAngle = -90f
-        var sweepAngle: Float
         val centerX = pieRect.centerX()
         val centerY = pieRect.centerY()
         val radius = pieRect.width() / 2
         val textRadius = radius * 0.7f
 
+        var sweepAngle: Float
+        var startAngle = START_ANGLE
         for ((color, percent) in data) {
             sweepAngle = 360 * (percent / total)
             val angle = startAngle + sweepAngle / 2
@@ -67,7 +67,7 @@ class PieChartView @JvmOverloads constructor(
         }
 
         // draw boundaries between sectors
-        startAngle = -90f
+        startAngle = START_ANGLE
         for ((_, percent) in data) {
             sweepAngle = 360 * (percent / total)
 
@@ -91,5 +91,9 @@ class PieChartView @JvmOverloads constructor(
             centerX + diameter * 0.5f,
             centerY + diameter * 0.5f
         )
+    }
+
+    companion object {
+        const val START_ANGLE = -90f
     }
 }
